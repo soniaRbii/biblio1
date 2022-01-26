@@ -29,10 +29,10 @@ class LivreRepository extends ServiceEntityRepository
             ->createQueryBuilder('l');
             
 
-        if (!empty($search->q) and !(empty($search->u))) {
+        if (!empty($search->q)) {
             $query = $query
-                ->andWhere('l.titre LIKE :q')-> OrWhere('l.categorie LIKE :u')
-                ->setParameter(['q', "%{$search->q}%"]);
+                ->andWhere('l.titre LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
         }
 
       

@@ -37,7 +37,7 @@ $datetime =new \DateTime('now');
 $dateEmp =new \DateTime('now');
 $valeurAjout = 1440; // 2jrs pour l'exemple
 
-       $interval = new \DateInterval('P2W');
+       $interval = new \DateInterval('P1W');
        dump($interval);
         $empreint=new Empreint();
         $empreint->setUsername($user);
