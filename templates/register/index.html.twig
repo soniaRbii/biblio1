@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% form_theme regform 'bootstrap_4_layout.html.twig' %}
+
+{% block body  %}
+  <br>
+    <div class="container">
+<h2>Register</h2>
+<br>
+{{form(regform)}}
+<br>
+</div>
+{% endblock %}

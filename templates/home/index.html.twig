@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			
+			<div class="hs-item">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hs-text">
+								<h2><span>{{livre2.titre}}</span> !</h2>
+							<p>La lecture de tous les bons livres est comme une conversation avec les plus honnêtes gens des siècles passés.	</p>
+									<div>
+									<p>prix : {{livre2.prix}} </p>
+								
+  
+      
+
+                                    {% for user in editeur %}
+								   <p> Editeur : <a href="{{path('profile' ,{'id' : id})}}" >{{user.nom}}</a>
+								       {% endfor %}
+									 
+								</div>
+								<a href="{{path('menu')}}" class="site-btn">Menu</a>
+								<a href="{{path('empreint')}}" class="site-btn sb-c2">liste des empreint</a>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="hr-img">
+							<img src="{{asset('images/' ~ livre2.image)}} " width="2">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="hs-item">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hs-text">
+								<h2><span>{{livre1.titre}}</span> !</h2>
+							<p>La lecture de tous les bons livres est comme une conversation avec les plus honnêtes gens des siècles passés.	</p>
+								<div>
+								<p>prix : {{livre1.prix}} </p>
+								  {% for user in editeur %}
+								   <p> Editeur : <a href="{{path('profile' ,{'id' : id})}}" >{{user.nom}}</a>
+								       {% endfor %}
+									 
+								</div>
+							
+								
+								<a href="{{path('menu')}}" class="site-btn">Menu</a>
+								<a href="{{path('empreint')}}" class="site-btn sb-c2">liste des empreint</a>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="hr-img">
+							<img src="{{asset('images/' ~ livre1.image)}} " width="2">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+{% endblock %}

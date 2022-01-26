@@ -1,0 +1,41 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!-- Header section -->
+	<header class="header-section clearfix">
+		<a href="{{path('home')}}" class="site-logo">
+			<img src="{{asset('images/logo_large.png')}}" alt="" width="90px" height="70px">
+		</a>
+		<div class="header-right">
+			<a href="#" class="hr-btn">Help</a>
+			<span>|</span>
+			<div class="user-panel">
+					{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+						<a href="{{path('app_login')}}" class="register">Login</a>
+					{% endif %}
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+						<a href="{{path('app_logout')}}" class="register">Logout</a>
+					{% endif %}
+				</div>
+		</div>
+		
+		<ul class="main-menu">
+			<li><a href="{{path('home')}}">welcome</a></li>
+			<li><a href="{{path('menu')}}">Menu</a></li>
+			<li><a href="{{path('register')}}" class="register">Register</a></li>
+            
+			<li><a href="{{path('mail')}}">Contact</a></li>
+
+	
+		</ul>
+	</header>
+	<!-- Header section end -->
+    
+    {% block javascripts %}
+ 
+        <script type="text/javascript" src="js/effet1.js"></script>
+         
+        <script>
+     ...
+    </script>
+ 
+    {% endblock %}

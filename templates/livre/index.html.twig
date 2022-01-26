@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LivreController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1> tous les  livres</h1>
+<br>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Titre
+</th>
+<th>Isbn
+</th>
+<th>prix
+</th>
+<th>Quantité
+</th></tr>
+</thead>
+<tbody>
+{% for livre in livres%}
+<tr>
+<td>{{livre.titre}}</td>
+<td>{{livre.Isbn}}</td>
+<td>{{livre.prix}}</td>
+<td>{{livre.qteStock}}</td></tr>
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+{% endblock %}

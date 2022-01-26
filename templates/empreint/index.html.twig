@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<br>
+	<div class="container">
+		<h2>liste des empreints :</h2>
+		<br>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Id empreint</td>
+					<td>Id livre</td>
+					<td>DateEmpreint</td>
+                    <td>DateRetour</td>
+					<td>Status</td>
+					<td></td>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for empreint in empreints %}
+				
+					<tr>
+                    <td>{{empreint.id}}</td>
+						<td>{{empreint.idLivre}}</td>
+						<td>{{empreint.DateEmpreint|date("d/m/Y") }}</td>
+						<td>{{empreint.DateRetour|date("d/m/Y") }}</td>
+						{% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+							<td>{{empreint.status}}</td>
+						{% endif %}
+						
+					
+					</tr>
+				{% endfor %}
+				<td></td>
+				<td></td>
+				
+				<td></td>
+				<td></td>
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
