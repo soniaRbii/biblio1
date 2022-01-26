@@ -36,7 +36,8 @@ class EmpreintController extends AbstractController
 $datetime =new \DateTime('now');
 $dateEmp =new \DateTime('now');
 $valeurAjout = 1440; // 2jrs pour l'exemple
-
+if(!$livre->getQteStock()==0){
+$livre->setQteStock($livre->getQteStock()-1);
        $interval = new \DateInterval('P1W');
        dump($interval);
         $empreint=new Empreint();
@@ -46,13 +47,19 @@ $valeurAjout = 1440; // 2jrs pour l'exemple
         $empreint->setDateRetour($datetime->add($interval));
         $empreint->setStatus('en attente');
         $em=$this->getDoctrine()->getManager();
+        $em->persist($livre);
         $em->persist($empreint);
         $em->flush();
         $this->addFlash('empreint', $empreint->getUsername() . ' ' .'votre empreint est faite avec succes');
         return $this->redirect($this->generateUrl('menu'));
+}else{
+    $this->addFlash('empreint','la quantité du stock est vide');
+    return $this->redirect($this->generateUrl('menu'));}
+
+}
 
     }
        
 
-    }
+    
 
